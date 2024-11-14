@@ -8,8 +8,18 @@ import SelectedMovie from './pages/SelectedMovie';
 import Details from './Details';
 import Credits from './Credits';
 import Reviews from './Reviews';
+import { useEffect } from 'react';
+import fetchTrending from './API';
 
 export const App = () => {
+  useEffect(() => {
+    const response = async () => {
+      const res = await fetchTrending();
+      console.log(res);
+    };
+    response();
+  }, []);
+
   return (
     <>
       <Routes>
