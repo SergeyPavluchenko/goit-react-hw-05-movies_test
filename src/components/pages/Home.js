@@ -1,19 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import fetchTrending from 'components/API';
+import Spiner from 'components/Spiner/Spiner';
+import ListMovies from 'components/subPages/ListMovies';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const Home = () => {
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const response = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetchTrending();
+        setMovies(res);
+        setIsLoading(false);
+      } catch (error) {
+        toast.error('Щось пішло не так 🤷‍♂️');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    response();
+  }, []);
+
   return (
     <div>
       <div>Home</div>
-      <ul>
-        {['film-1', 'film-2', 'film-3', 'film-4', 'film-5'].map(film => {
-          return (
-            <li key={film}>
-              <Link to={`${film}`}>{film}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      {isLoading ? <Spiner /> : <ListMovies movies={movies} />}
     </div>
   );
 };

@@ -12,8 +12,11 @@
     "modern-normalize": "^3.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-hot-toast": "^2.4.1",
+    "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.28.0",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.14.1",
     "styled-components": "^6.1.13",
     "web-vitals": "^2.1.3"
   },

@@ -1,25 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
-import { GlobalStyled } from './GlobalStyled';
+import { GlobalStyled } from './subPages/GlobalStyled';
 import Home from './pages/Home';
 import Layout from './Layout/Layout';
 import MoviesSearch from './pages/MoviesSearch';
 import Favotite from './pages/Favotite';
 import SelectedMovie from './pages/SelectedMovie';
-import Details from './Details';
-import Credits from './Credits';
-import Reviews from './Reviews';
-import { useEffect } from 'react';
-import fetchTrending from './API';
-
+import Details from './subPages/Details';
+import Credits from './subPages/Credits';
+import Reviews from './subPages/Reviews';
 export const App = () => {
-  useEffect(() => {
-    const response = async () => {
-      const res = await fetchTrending();
-      console.log(res);
-    };
-    response();
-  }, []);
-
   return (
     <>
       <Routes>
