@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Headers = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand" href="/goit-react-hw-05-movies_test">
           Navbar

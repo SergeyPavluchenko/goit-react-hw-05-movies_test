@@ -1,6 +1,6 @@
-import fetchTrending from 'components/API';
+import { fetchTrending } from 'components/API';
 import Spiner from 'components/Spiner/Spiner';
-import ListMovies from 'components/subPages/ListMovies';
+import ListMovies from 'components/ListMovies/ListMovies';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -27,7 +27,8 @@ const Home = () => {
   return (
     <div>
       <div>Home</div>
-      {isLoading ? <Spiner /> : <ListMovies movies={movies} />}
+      {isLoading && <Spiner />}
+      <ListMovies movies={movies} />
     </div>
   );
 };
