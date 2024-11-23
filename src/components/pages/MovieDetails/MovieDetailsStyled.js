@@ -17,10 +17,18 @@ export const MovieInfoBlock = styled.div`
 export const LinkBlock = styled.ul`
   display: flex;
   list-style: none;
-  /* margin-top: 16px; */
+  margin-bottom: 30px;
   flex-direction: row;
   align-items: center;
   align-content: center;
   justify-content: space-evenly;
   padding-top: 16px;
+`;
+
+export const MovieDetailsBlock = styled.div`
+  margin-bottom: 40px;
+`;
+export const BtnBack = styled.button`
+  display: flex;
+  align-items: center;
 `;

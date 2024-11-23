@@ -1,78 +1,58 @@
+import toast from 'react-hot-toast';
 import { fetchTrendingMovieDetails } from 'components/API';
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
-import {
-  LinkBlock,
-  MovieBlock,
-  MovieImgStyled,
-  MovieInfoBlock,
-} from './MovieDetailsStyled';
+import { useParams } from 'react-router-dom';
+// import {
+//   LinkBlock,
+//   MovieBlock,
+//   MovieDetailsBlock,
+//   MovieImgStyled,
+//   MovieInfoBlock,
+// } from './MovieDetailsStyled';
+import MovieDetailsComponent from 'components/pages/MovieDetails/MovieDetailsComponent';
+import Spiner from 'components/Spiner/Spiner';
+import ButtonBack from 'components/Buttons/ButtonBack';
 
 const MovieDetails = () => {
   const { filmId } = useParams();
   const [movie, setMovie] = useState([]);
   const [prodactCompany, setProdactCompany] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const response = async () => {
       try {
+        setIsLoading(true);
         const res = await fetchTrendingMovieDetails(filmId);
         setMovie(res);
         setProdactCompany(res.production_companies);
         setGenres(res.genres);
+        setIsLoading(false);
         return res;
-      } catch (error) {}
+      } catch (error) {
+        toast.error("This didn't work.");
+      }
     };
     response();
   }, [filmId]);
 
-  console.log(movie);
-  const { title, release_date, overview, poster_path } = movie;
+  // const { title, release_date, overview, poster_path, vote_average } = movie;
 
   return (
     <>
-      <MovieBlock>
-        <div>
-          <MovieImgStyled
-            src={
-              poster_path
-                ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                : `No Image 🤷‍♂️`
-            }
-            alt="title"
-            width={300}
-          />
-        </div>
-
-        <MovieInfoBlock>
-          <h2>Details:{title}</h2>
-          <br />
-          <h4>Release Data: {release_date}</h4>
-          <br />
-          <h4>Genres: </h4>
-          <p>{genres.map(genre => genre.name).join(', ')}</p>
-          <br />
-          <h4>Production Companies: </h4>
-          <p>{prodactCompany.map(company => company.name)}</p>
-          <br />
-          <h4>Overview:</h4>
-          <p>{overview}</p>
-        </MovieInfoBlock>
-      </MovieBlock>
-      <LinkBlock>
-        <li>
-          <Link to="credits">Credits</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </LinkBlock>
-      <Outlet />
+      <ButtonBack />
+      {isLoading ? (
+        <Spiner />
+      ) : (
+        <MovieDetailsComponent
+          movie={movie}
+          prodactCompany={prodactCompany}
+          genres={genres}
+        />
+      )}
     </>
   );
 };
 
 export default MovieDetails;
-
-// 'https://api.themoviedb.org/3/movie/movie_id?language=en-US';

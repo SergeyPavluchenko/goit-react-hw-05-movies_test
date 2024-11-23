@@ -5,12 +5,10 @@ const ListMovies = ({ movies }) => {
   return (
     <div>
       <ul>
-        {movies.map(movie => {
+        {movies.map(({ original_title, id }) => {
           return (
-            <li key={movie.id}>
-              <Link to={`movie/${movie.id}${movie.title}`}>
-                {movie.original_title}
-              </Link>
+            <li key={id}>
+              <Link to={`movie/${id}`}>{original_title}</Link>
             </li>
           );
         })}

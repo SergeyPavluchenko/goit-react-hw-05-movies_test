@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import { GlobalStyled } from '../GlobalStyled';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Layout from './Layout/Layout';
-import MoviesSearch from './pages/MoviesSearch';
-import Favotite from './pages/Favotite';
+import MoviesSearch from './pages/MoviesSearch/MoviesSearch';
+import Favotite from './pages/Favorite/Favotite';
 import MovieDetails from './pages/MovieDetails/MovieDetails';
 import Credits from './Credits/Credits';
 import Reviews from './Reviews/Reviews';
