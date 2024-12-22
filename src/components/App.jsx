@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import { GlobalStyled } from '../GlobalStyled';
-import Home from './pages/Home/Home';
+import Home from '../pages/Home/Home';
 import Layout from './Layout/Layout';
-import MoviesSearch from './pages/MoviesSearch/MoviesSearch';
-import Favotite from './pages/Favorite/Favotite';
-import MovieDetails from './pages/MovieDetails/MovieDetails';
+import Movies from '../pages/Movies/Movies';
+import Favotite from '../pages/Favorite/Favotite';
+import MovieDetails from './MovieDetails/MovieDetails';
 import Credits from './Credits/Credits';
 import Reviews from './Reviews/Reviews';
 export const App = () => {
@@ -13,15 +13,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="movie/:filmId" element={<MovieDetails />}>
+          <Route path="movies" element={<Movies />} />
+          <Route path="/:filmId" element={<MovieDetails />}>
             <Route path="credits" element={<Credits />} />
             <Route path="reviews" element={<Reviews />} />
-          </Route>
-          <Route path="movies" element={<MoviesSearch />}>
-            <Route path="movie/:filmId" element={<MovieDetails />}>
-              <Route path="credits" element={<Credits />} />
-              <Route path="reviews" element={<Reviews />} />
-            </Route>
           </Route>
           <Route path="favorite" element={<Favotite />} />
         </Route>

@@ -1,4 +1,4 @@
-import { fetchTrending } from 'components/API';
+import { fetchTrending } from 'components/MovieAPI/API';
 import Spiner from 'components/Spiner/Spiner';
 import ListMovies from 'components/ListMovies/ListMovies';
 import React, { useEffect, useState } from 'react';

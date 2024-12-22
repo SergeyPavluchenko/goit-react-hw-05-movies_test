@@ -7,7 +7,7 @@ const ButtonBack = () => {
     <BtnBlock>
       <button
         type="button"
-        class="btn btn-outline-dark d-flex align-items-center"
+        className="btn btn-outline-dark d-flex align-items-center"
       >
         <MdArrowBackIosNew />
         Back

@@ -1,4 +1,4 @@
-import { fetchCredits } from 'components/API';
+import { fetchCredits } from 'components/MovieAPI/API';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
