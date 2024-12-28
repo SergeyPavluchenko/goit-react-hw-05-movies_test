@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-const Form = ({ queryString }) => {
-  const [search, setSearch] = useState('');
+const Form = ({ onChange, value }) => {
+  // const [search, setSearch] = useState('');
 
-  const handleChange = evt => {
-    setSearch(evt.target.value);
-  };
+  // const handleChange = evt => {
+  //   setSearch(evt.target.value);
+  // };
 
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    queryString(search);
-  };
+  // const handleSubmit = evt => {
+  //   evt.preventDefault();
+  //   queryString(value);
+  // };
 
   return (
     <>
       <nav className="navbar bg-body-tertiary">
         <div className="container-fluid d-flex justify-content-center ">
-          <form className="d-flex " role="search" onSubmit={handleSubmit}>
+          <form className="d-flex " role="search">
             <input
               className="form-control me-2 "
               type="text"
               placeholder="Search"
               aria-label="Search"
-              value={search}
-              onChange={handleChange}
+              value={value}
+              onChange={e => onChange(e.target.value)}
             />
             <button className="btn btn-outline-success" type="submit">
               Search
