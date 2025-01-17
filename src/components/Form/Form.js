@@ -1,17 +1,6 @@
 // import React, { useState } from 'react';
 
 const Form = ({ onChange, value }) => {
-  // const [search, setSearch] = useState('');
-
-  // const handleChange = evt => {
-  //   setSearch(evt.target.value);
-  // };
-
-  // const handleSubmit = evt => {
-  //   evt.preventDefault();
-  //   queryString(value);
-  // };
-
   return (
     <>
       <nav className="navbar bg-body-tertiary">

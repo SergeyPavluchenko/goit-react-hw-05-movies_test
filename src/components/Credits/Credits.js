@@ -1,7 +1,8 @@
-import { fetchCredits } from 'components/MovieAPI/API';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+import { fetchCredits } from 'components/MovieAPI/API';
+import noImage from '../Image/noImage.png';
 import {
   CastBox,
   CastImg,
@@ -18,7 +19,6 @@ const Credits = () => {
     const response = async () => {
       try {
         const res = await fetchCredits(filmId);
-        console.log(res);
         setCasts(res.data.cast);
         return res;
       } catch (error) {
@@ -27,8 +27,6 @@ const Credits = () => {
     };
     response();
   }, [filmId]);
-
-  console.log(casts);
 
   return (
     <CastBox>
@@ -40,7 +38,7 @@ const Credits = () => {
               src={
                 profile_path
                   ? `https://image.tmdb.org/t/p/w500/${profile_path}`
-                  : `no Image 🤷‍♂️`
+                  : `${noImage}`
               }
               alt={name}
             />

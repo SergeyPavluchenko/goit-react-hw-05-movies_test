@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import noImage from '../Image/noImage.png';
 
 import {
   LinkBlock,
@@ -18,9 +19,9 @@ const MovieDetailsComponent = ({ movie, prodactCompany, genres }) => {
           <div>
             <MovieImgStyled
               src={
-                poster_path
+                poster_path !== null
                   ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                  : `No Image 🤷‍♂️`
+                  : `${noImage}`
               }
               alt="title"
               width={300}
