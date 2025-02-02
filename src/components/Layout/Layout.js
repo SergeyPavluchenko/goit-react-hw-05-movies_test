@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+
 import { Outlet } from 'react-router-dom';
 
 import Headers from 'components/Headers/Headers';
+import Spiner from 'components/Spiner/Spiner';
 
 const Layout = () => {
   return (
-    <div>
+    <>
       <Headers />
-      <Outlet />
-    </div>
+      <Suspense fallback={<Spiner />}>
+        <Outlet />
+      </Suspense>
+    </>
   );
 };
 
